@@ -31,7 +31,15 @@ public class GameManager : MonoBehaviour
     public int currentPlatform = 0;
     private void Awake()
     {
-        if (Instance == null)
+/*        if (Instance == null)
+        {
+            Instance = this;
+        }*/
+        if (Instance!=null)
+        {
+            Destroy(this);
+        }
+        else
         {
             Instance = this;
         }

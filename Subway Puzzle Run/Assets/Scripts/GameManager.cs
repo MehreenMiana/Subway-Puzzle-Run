@@ -18,6 +18,12 @@ public class GameManager : MonoBehaviour
 
     public PlatformProperties properties;
 
+    
+    [Header("UI Reference")]
+    public GameObject GameOverPanel;
+    public GameObject QuizPanel;
+ 
+
     public float speed = 5f;
 
     public bool IsSlowMo=false;
@@ -33,7 +39,10 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     public void SetSlowMo (bool TargetSlowMo)
     {
-        IsSlowMo = TargetSlowMo;
-        speed = IsSlowMo ? properties.SlowMoSpeed : properties.NormalSpeed;
+        //  IsSlowMo = TargetSlowMo;
+        ///  speed = IsSlowMo ? properties.SlowMoSpeed : properties.NormalSpeed;
+
+        // player animation idle
+        PuzzleController.instance.DisplayPuzzle();
     }
 }

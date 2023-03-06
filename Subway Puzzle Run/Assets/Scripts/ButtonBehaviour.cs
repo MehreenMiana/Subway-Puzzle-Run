@@ -5,10 +5,12 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class ButtonBehaviour : MonoBehaviour
 {
+    public AudioSource m_MyAudioSource;
     public Slider VolumeSlider;
     private void Start()
     {
-        if(!PlayerPrefs.HasKey("MusicVolume"))
+        m_MyAudioSource.enabled = true;
+        if (!PlayerPrefs.HasKey("MusicVolume"))
         {
             PlayerPrefs.SetFloat("MusicVolume", 1);
         }
@@ -16,6 +18,10 @@ public class ButtonBehaviour : MonoBehaviour
         {
             OnLoad();
         }
+    }
+    public void OnAudioClick()
+    {
+        m_MyAudioSource.enabled = !m_MyAudioSource.enabled;
     }
     // Start is called before the first frame update
     public void OnQuit()
